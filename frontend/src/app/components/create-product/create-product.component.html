@@ -1,0 +1,22 @@
+<!-- create-product.component.html -->
+<form (ngSubmit)="createProduct()" [formGroup]="productForm">
+    <label for="name">Product Name:</label>
+    <input type="text" id="name" formControlName="name">
+
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" formControlName="brand">
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" formControlName="category">
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" formControlName="description">
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" formControlName="price">
+
+    <label for="countInStock">Count in Stock:</label>
+    <input type="number" id="countInStock" formControlName="countInStock">
+
+    <button type="submit">Create Product</button>
+  </form>
