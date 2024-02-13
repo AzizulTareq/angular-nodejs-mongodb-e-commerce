@@ -1,6 +1,16 @@
-<div *ngFor="let product of products">
-  <h3 class="font-semibold">{{ product.name }}</h3>
-  <p>{{ product.description }}</p>
-  <p>Price: Tk {{ product.price }}</p>
-  <hr />
-</div>
+<table class="table-fixed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }}</td>
+    </tr>
+  </tbody>
+</table>

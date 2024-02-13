@@ -1,2 +1,31 @@
+<!-- app.component.html -->
+<div class="container mx-auto mt-8">
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    (click)="openLoginModal()"
+  >
+    Login
+  </button>
+  <button
+    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+    (click)="openRegisterModal()"
+  >
+    Sign Up
+  </button>
+  <button
+    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+    (click)="logout()"
+  >
+    Logout
+  </button>
+
+  <app-modal *ngIf="showLoginModal" (closed)="closeLoginModal()">
+    <app-login (loginSuccess)="closeLoginModal()"></app-login>
+  </app-modal>
+
+  <app-modal *ngIf="showRegisterModal" (closed)="closeRegisterModal()">
+    <app-register (registerSuccess)="closeRegisterModal()"></app-register>
+  </app-modal>
+</div>
 <app-product-list></app-product-list>
 <app-create-product></app-create-product>
