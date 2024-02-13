@@ -1,4 +1,3 @@
-// create-product.component.ts
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
@@ -31,24 +30,18 @@ export class CreateProductComponent {
 
   createProduct(): void {
     if (this.productForm.valid) {
-      // Get logged-in user's ID from local storage
       const loggedInUserJson = localStorage.getItem('user');
       if (loggedInUserJson) {
         const loggedInUser = JSON.parse(loggedInUserJson);
         const userId: string = loggedInUser._id;
 
-        // Include user ID in the product creation payload
         const productPayload = { ...this.productForm.value, user: userId };
 
         this.productService.createProduct(productPayload).subscribe(
           (createdProduct) => {
             console.log('Product created successfully:', createdProduct);
-            // Close the modal
-            // Assuming your modal component has a close method
-            // Adjust this based on how your modal is implemented
             this.closeModal();
 
-            // Refresh the page by navigating to the current route
             this.router.routeReuseStrategy.shouldReuseRoute = () => false;
             const currentUrl = this.router.url;
             this.router
@@ -59,20 +52,16 @@ export class CreateProductComponent {
           },
           (error) => {
             console.error('Error creating product:', error);
-            // Handle error
           }
         );
       } else {
         console.error('Error: User not found in local storage');
       }
     } else {
-      // Handle form validation errors
       console.log('Form is not valid');
     }
   }
 
   closeModal(): void {
-    // You need to implement the close method in your modal component
-    // This will depend on how your modal is implemented
   }
 }

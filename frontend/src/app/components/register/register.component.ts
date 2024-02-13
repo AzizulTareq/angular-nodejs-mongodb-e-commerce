@@ -31,15 +31,12 @@ export class RegisterComponent {
         (response) => {
           console.log('Registration successful:', response);
 
-          // Store user information in localStorage
           localStorage.setItem('user', JSON.stringify(response));
 
-          // Emit event to notify successful registration
           this.registerSuccess.emit();
         },
         (error) => {
           console.error('Registration failed:', error);
-          // Handle error, show error message, etc.
         }
       );
   }

@@ -1,7 +1,7 @@
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 
-// Get all products
+// Get all products, with pagination
 const getProducts = asyncHandler(async (req, res) => {
   const pageSize = 10;
   const page = Number(req.query.pageNumber) || 1;

@@ -1,4 +1,3 @@
-// app.component.ts
 import { Component, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
