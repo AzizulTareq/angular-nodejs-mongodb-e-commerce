@@ -1,16 +1,39 @@
-<table class="table-fixed">
+<table class="table-fixed overflow-x-auto">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
+      <th class="text-start pr-8">Name</th>
+      <th class="text-start pr-8">Description</th>
+      <th class="text-start pr-8">Price</th>
+      <th class="text-start pr-8">Brand</th>
+      <th class="text-start pr-8">Category</th>
+      <th class="text-start pr-8">Count In Stock</th>
+      <th class="text-start pr-8">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr  *ngFor="let product of products">
-      <td>{{ product.name }}</td>
-      <td>{{ product.description }}</td>
-      <td>{{ product.price }}</td>
+    <tr *ngFor="let product of products">
+      <td class="pr-8 py-2">{{ product.name }}</td>
+      <td class="pr-8 py-2">{{ product.description }}</td>
+      <td class="pr-8 py-2">{{ product.price }} Tk.</td>
+      <td class="pr-8 py-2">{{ product.brand }}</td>
+      <td class="pr-8 py-2">{{ product.user }}</td>
+      <td class="pr-8 py-2">{{ product.countInStock }}</td>
+      <td class="pr-8 py-2">
+        <button
+          *ngIf="isUserMatched(product.user)"
+          (click)="editProduct(product._id)"
+          class="text-blue-600 font-semibold px-2"
+        >
+          Edit
+        </button>
+        <button
+          *ngIf="isUserMatched(product.user)"
+          (click)="deleteProduct(product._id)"
+          class="text-red-600 font-semibold px-2"
+        >
+          Delete
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -1,4 +1,3 @@
-// login.component.ts
 import { Component, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -29,11 +28,10 @@ export class LoginComponent {
         (response) => {
           localStorage.setItem('user', JSON.stringify(response));
           console.log('Login successful:', response);
-          this.loginSuccess.emit(); // Emit the event
+          this.loginSuccess.emit();
         },
         (error) => {
           console.error('Login failed:', error);
-          // Handle error, show error message, etc.
         }
       );
   }

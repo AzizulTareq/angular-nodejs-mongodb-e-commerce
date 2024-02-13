@@ -19,6 +19,13 @@
     Logout
   </button>
 
+  <button
+    class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+    (click)="openCreateProductModal()"
+  >
+    Create Product
+  </button>
+
   <app-modal *ngIf="showLoginModal" (closed)="closeLoginModal()">
     <app-login (loginSuccess)="closeLoginModal()"></app-login>
   </app-modal>
@@ -26,6 +33,12 @@
   <app-modal *ngIf="showRegisterModal" (closed)="closeRegisterModal()">
     <app-register (registerSuccess)="closeRegisterModal()"></app-register>
   </app-modal>
+
+  <app-modal
+    *ngIf="showCreateProductModal"
+    (closed)="closeCreateProductModal()"
+  >
+    <app-create-product (createSuccess)="closeCreateModal()"></app-create-product>
+  </app-modal>
 </div>
 <app-product-list></app-product-list>
-<app-create-product></app-create-product>

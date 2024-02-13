@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   showLoginModal = false;
   showRegisterModal = false;
+  showCreateModal = false;
   isLoggedIn = false;
 
   constructor(private http: HttpClient, private zone: NgZone) {
@@ -31,6 +32,11 @@ export class AppComponent {
 
   closeRegisterModal(): void {
     this.showRegisterModal = false;
+    this.checkLoggedIn();
+  }
+
+  closeCreateModal(): void {
+    this.showCreateModal = false;
     this.checkLoggedIn();
   }
 
@@ -59,7 +65,9 @@ export class AppComponent {
   }
 
   private getUserData(): any {
-    return this.isLocalStorageAvailable() ? JSON.parse(localStorage.getItem('user') || '{}') : null;
+    return this.isLocalStorageAvailable()
+      ? JSON.parse(localStorage.getItem('user') || '{}')
+      : null;
   }
 
   private isLocalStorageAvailable(): boolean {
@@ -68,6 +76,15 @@ export class AppComponent {
 
   handleRegisterSuccess(): void {
     this.closeRegisterModal();
-    // You can perform additional actions after successful registration, if needed
+  }
+
+  showCreateProductModal = false;
+
+  openCreateProductModal(): void {
+    this.showCreateProductModal = true;
+  }
+
+  closeCreateProductModal(): void {
+    this.showCreateProductModal = false;
   }
 }
